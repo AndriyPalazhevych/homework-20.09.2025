@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Музичний Плейлист</title>
+    <script>
+        let songs = {{ songs|tojson|safe }};
+
+        function showRandomSong() {
+            if (songs.length === 0) {
+                document.getElementById("random-song").innerText = "Список пісень порожній.";
+                return;
+            }
+            let randomIndex = Math.floor(Math.random() * songs.length);
+            let randomSong = songs[randomIndex];
+            document.getElementById("random-song").innerText = "🎵 " + randomSong;
+        }
+    </script>
+</head>
+<body>
+    <h1>Ласкаво просимо до Музичного Плейлисту!</h1>
+
+    <!-- Кнопка переходу до повного списку -->
+    <form action="/show_songs" method="get">
+        <button type="submit">Показати Список Пісень</button>
+    </form>
+
+    <!-- Кнопка для показу випадкової пісні -->
+    <button onclick="showRandomSong()">Показати Випадкову Пісню</button>
+
+    <!-- Блок для відображення випадкової пісні -->
+    <div id="random-song" style="margin-top: 20px; font-size: 18px; font-weight: bold;"></div>
+</body>
+</html>
