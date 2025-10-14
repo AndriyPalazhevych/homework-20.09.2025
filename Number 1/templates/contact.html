@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакти наших агентів</title>
+</head>
+<body>
+    <h1>Контактна інформація наших агентів</h1>
+    <ul>
+        {% for name, phone in contacts %}
+            <li><strong>{{ name }}</strong>: {{ phone }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}"><button>На головну сторінку</button></a>
+    <a href="{{ url_for('countries') }}"><button>Країни</button></a>
+</body>
+</html>

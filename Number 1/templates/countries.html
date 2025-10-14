@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Країни для подорожей</title>
+</head>
+<body>
+    <h1>5 цікавих місць для подорожей:</h1>
+    <ul>
+        {% for place in places %}
+            <li>{{ place }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}"><button>На головну сторінку</button></a>
+    <a href="{{ url_for('contact') }}"><button>Контакти</button></a>
+</body>
+</html>

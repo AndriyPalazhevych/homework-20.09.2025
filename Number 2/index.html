@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Популярні фільми</title>
+</head>
+<body>
+    <h1>Популярні фільми</h1>
+    <ul>
+        {% for id, movie in movies.items() %}
+            <li>
+                <a href="{{ url_for('movie', movie_id=id) }}">{{ movie.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('random_movie') }}"><button>Хочю на рандом!</button></a>
+</body>
+</html>
